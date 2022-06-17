@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+	div {
+		margin: 0;
+		padding: 0;
+		font-family: 'Open Sans', sans-serif;
+	}
+	body {
+		background-color: white;
+		color: rgb(44, 41, 41);
+	}
+	pre {
+		tab-size: 4;
+		width: 90%; 
+		text-align: left; 
+		padding: 30px; 
+		display: inline-block;
+	}
+</style>
+<title>Canvas Player Example</title>
+<body>
+	<div style="font-size: 42px; width: 100%; text-align: center; margin: 30px 0 5px;">Canvas Player</div>
+	<div style="font-size: 19px; width: 70%; text-align: center; margin: 0 0 20px; padding:0 15%;">Gapless video playlist playback in loop with (animated gradient) preloading and video file endpoint validation. Works on all common browsers including iOS Safari and Tesla browser 😉</div>
+	<div style="text-align: center; ">
+<!-- set width and height of the player, you'll get black bars if not set correctly -->
+<iframe name="CanvasPlayer" src="#" width="640" height="360" style="border:0;"></iframe>
+<form id="cpForm" target="CanvasPlayer" action="https://localhost/canvas-video-player/" method="POST">
+	<input type="hidden" name="framerate" value='25' />
+	<!-- set video chunks or clips in chunks[] array -->
+	<input type="hidden" name="chunks[]" value='https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-213be8d6111ddbc3b2e4f9e93613adbdaae2d71e71466ab7421e4478537d63bd' />
+	<input type="hidden" name="chunks[]" value='https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-104afcebb61dd5d712a029b616d1ef3bb5ac7d4a7e98ccc24c992c99dc9d20b9' />
+	<input type="hidden" name="chunks[]" value='https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-ef6e8773886e1eda091e3db9603629737445bc0aef2043df0f4674c6ebd28b2f' />
+	<input type="hidden" name="chunks[]" value='https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-62313aa4539c2f7da733b97b7c44eab8b6e94f19d990bee1ad2339c0ba9c3ff8' />
+	<input type="hidden" name="chunks[]" value='https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-f68e185ce615c614f32b5fa5a3dc0b2a79c5d7b8a4af8639d88e6e1845c558de' />
+</form>
+<script>document.getElementById("cpForm").submit();</script>
+	</div>
+	
+	
+<div style="text-align: center;">
+<!-- CODE BELOW -->
+<pre class="hljs" style="overflow-x: auto; background: rgb(0, 36, 81); color: rgb(255, 255, 255); padding: 0.5em;"><span class="hljs-comment" style="color: rgb(114, 133, 183);">&lt;!-- set width and height of the player, you'll get black bars if not set correctly --&gt;</span>
+<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">iframe</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"CanvasPlayer"</span> <span class="hljs-attr">src</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"#"</span> <span class="hljs-attr">width</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"640"</span> <span class="hljs-attr">height</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"360"</span> <span class="hljs-attr">style</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"border:0;"</span>&gt;</span><span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;/<span class="hljs-name" style="color: rgb(255, 157, 164);">iframe</span>&gt;</span>
+<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"cpForm"</span> <span class="hljs-attr">target</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"CanvasPlayer"</span> <span class="hljs-attr">action</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"https://localhost/canvas-video-player/"</span> <span class="hljs-attr">method</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"POST"</span>&gt;</span>
+	<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"framerate"</span> <span class="hljs-attr">value</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">'25'</span> /&gt;</span>
+	<span class="hljs-comment" style="color: rgb(114, 133, 183);">&lt;!-- set video chunks or clips in chunks[] array --&gt;</span>
+	<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"chunks[]"</span> <span class="hljs-attr">value</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">'https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-213be8d6111ddbc3b2e4f9e93613adbdaae2d71e71466ab7421e4478537d63bd'</span> /&gt;</span>
+	<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"chunks[]"</span> <span class="hljs-attr">value</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">'https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-104afcebb61dd5d712a029b616d1ef3bb5ac7d4a7e98ccc24c992c99dc9d20b9'</span> /&gt;</span>
+	<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"chunks[]"</span> <span class="hljs-attr">value</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">'https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-ef6e8773886e1eda091e3db9603629737445bc0aef2043df0f4674c6ebd28b2f'</span> /&gt;</span>
+	<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"chunks[]"</span> <span class="hljs-attr">value</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">'https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-62313aa4539c2f7da733b97b7c44eab8b6e94f19d990bee1ad2339c0ba9c3ff8'</span> /&gt;</span>
+	<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">"chunks[]"</span> <span class="hljs-attr">value</span>=<span class="hljs-string" style="color: rgb(209, 241, 169);">'https://ams3.digitaloceanspaces.com/nimote-clips-test/chunks/sha3-256-f68e185ce615c614f32b5fa5a3dc0b2a79c5d7b8a4af8639d88e6e1845c558de'</span> /&gt;</span>
+<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;/<span class="hljs-name" style="color: rgb(255, 157, 164);">form</span>&gt;</span>
+<span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;<span class="hljs-name" style="color: rgb(255, 157, 164);">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in" style="color: rgb(255, 197, 143);">document</span>.getElementById(<span class="hljs-string" style="color: rgb(209, 241, 169);">"cpForm"</span>).submit();</span><span class="hljs-tag" style="color: rgb(255, 157, 164);">&lt;/<span class="hljs-name" style="color: rgb(255, 157, 164);">script</span>&gt;</span></pre>
+<!-- CODE ABOVE -->
+</div>
+
+
+<div style="text-align: center; font-size: 16px; margin-bottom:20px; color: #ccc">
+	©️ Exevio Ltd.
+</div>
